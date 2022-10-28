@@ -1,0 +1,61 @@
+<section>
+    <div class="container p-3">
+
+        {{!-- <div class="row">
+            <a href="/admin/user-details" class="btn btn-success ml-auto mt-4 ">Add products</a>
+        </div> --}}
+
+        <table class="table mt-5">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+     
+       
+  </thead>
+  <tbody>
+    {{#each usersData}}
+    <tr>
+      <th class="p-4" scope="row">{{@index}}</th>
+      <td class="p-4" scope="row"><b>{{this.name}}</b></td>
+      <td class="p-4" scope="row"><b>{{this.email}}</b></td>
+    
+       <td>
+        <a class="btn btn-success btn-sm m-2" href="/admin/update-user/{{this._id}}">Edit</a>
+        {{!-- <a class="btn btn-danger btn-sm m-2" onclick="return confirm ('Are you sure want to delete the user?')" href="/admin/delete-user/{{this._id}}">Delete user</a> --}}
+                <a class="btn btn-danger btn-sm m-2" onclick="sweet('{{this._id}}')">Delete user</a>
+
+        </td>
+      {{!-- <td scope="row"><b>{{this.password}}</b></td> --}}
+    </tr>
+    {{/each}}
+    
+  </tbody>
+</table>
+
+
+    </div>
+
+
+
+</section>
+
+<script>
+  function sweet(id){
+    
+    Swal.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, delete it!'
+}).then((result) => {
+  if (result.isConfirmed) {
+    location.href = `/admin/delete-user/${id}`
+  }
+})
+  }
+</script>

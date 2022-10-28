@@ -1,0 +1,29 @@
+<div class="container my-5">
+
+	<!-- Section: Design block -->
+  <section class="mb-10">
+    <div class="row">
+      <div class="col-md-9 col-lg-7 col-xl-5 mx-auto text-center">
+        <h4 class="mb-4"><u>Edit User</u></h4>
+        <form action="/admin/update/{{userData._id}}" method="post" enctype="multipart/form-data">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-outline mb-4">
+                <input type="text" id="contactBlockName1" class="form-control" name="name" value="{{userData.name}}" required/>
+                <label class="form-label" for="contactBlockName1">Name</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-outline mb-4">
+                <input type="text" class="form-control" name="email" value="{{userData.email}}" required/>
+                <label class="form-label" for="contactBlockEmail2">Email</label>
+              </div>
+            </div>
+          <button type="submit" class="btn btn-dark btn-block">Update</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  
+  
+</div>

@@ -1,0 +1,42 @@
+<div class="container my-5">
+
+	<!-- Section: Design block -->
+  <section class="mb-10">
+    <div class="row">
+      <div class="col-md-9 col-lg-7 col-xl-5 mx-auto text-center">
+        <h4 class="mb-4"><u>ADD PRODUCT</u></h4>
+        <form action="/admin/add-product" method="post" enctype="multipart/form-data">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-outline mb-4">
+                <input type="text" id="contactBlockName1" class="form-control" name="title"/>
+                <label class="form-label" for="contactBlockName1">Title</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-outline mb-4">
+                <input type="text" class="form-control" name="catogary"/>
+                <label class="form-label" for="contactBlockEmail2">Catogary</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-outline mb-4">
+            <input type="text" id="contactBlockPhone3" class="form-control" name="price"/>
+            <label class="form-label" for="contactBlockPhone3">Price</label>
+          </div>
+          <div class="form-outline mb-4">
+            <textarea class="form-control" id="contactBlockMessage4" rows="4" name="description"></textarea>
+            <label class="form-label" for="contactBlockMessage4">Description</label>
+          </div>
+          <div class="form-outline mb-4">
+            <input type="file" class="form-control" name="image"></input>
+            <label class="form-label" for="contactBlockMessage4">Image</label>
+          </div>
+          <button type="submit" class="btn btn-dark btn-block">Add Product</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  
+  
+</div>

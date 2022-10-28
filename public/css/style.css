@@ -1,0 +1,35 @@
+/* body{
+    
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items: center;
+      background: #F5F5F5;
+  } */
+  
+  .card{
+    overflow:hidden;
+    border-radius:10px;
+    min-height:500px;
+  
+  }
+  
+  .img-left{
+    width:45%;
+    background: url("https://i.pinimg.com/originals/cf/bc/2c/cfbc2cbd60a8081ad94161bd3914c80f.png") center;
+    background-size: auto;
+  }
+  
+  .card-body{
+    padding:2rem;
+  }
+  
+  input[type = 'email'],input[type = 'password']{
+    border-radius:100px;
+    border:none;
+    background: #E3F2FD;
+  }
+  input[type = 'button']{
+    border-radius:100px;
+  }
+ 
