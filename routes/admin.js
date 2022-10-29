@@ -99,25 +99,28 @@ router.get('/edit-product/:id',adminLogin,async(req,res)=>{
   res.render('admin/edit-product',{product,admin:true})
 })
 
-router.post('/edit-product/:id',(req,res)=>{
+router.post('/edit-product/:id',adminLogin,(req,res)=>{
   console.log(req.params.id);
   let id=req.params.id
   productHelpers.updateProduct(req.params.id,req.body).then(()=>{
     res.redirect('/admin')
-    if(req.files.image){
-      let Image=req.files.image
-      Image.mv('./public/product-images/'+id+'.jpg')
-    }
+if(req.files !== null){
+  if(req.files.image){
+    let Image=req.files.image
+    Image.mv('./public/product-images/'+id+'.jpg')
+  }
+}
+
   })
 })
 
-router.get('/user-details',(req,res)=>{
+router.get('/user-details',adminLogin,(req,res)=>{
   productHelpers.getUser().then((usersData)=>{
     res.render('admin/user-details',{usersData,admin:true})
   })
 })
 
-router.get('/delete-user/:id',adminLogin,(req,res)=>{
+router.get('/delete-user/:id',(req,res)=>{
 let userId=req.params.id
 productHelpers.deleteUser(userId).then((response)=>{
 res.redirect('/admin/user-details')
@@ -126,7 +129,7 @@ res.redirect('/admin/user-details')
 })
 
 
-router.get('/update-user/:id',adminLogin,async(req,res)=>{
+router.get('/update-user/:id',async(req,res)=>{
   let id=req.params.id
   const userData=await productHelpers.userDetails(id)
  
@@ -147,7 +150,7 @@ router.get('all-products',adminLogin,(req,res)=>{
 })
 
 router.get('/admlogout',(req,res)=>{
-  req.session.destroy()
+  req.session.login=null
   res.redirect('/admin/adminlogin')
 })
 module.exports = router;
